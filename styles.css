@@ -15,12 +15,15 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  height: 100%;
+/* Base color on html so any “below the fold” area never shows a mismatched flat band. */
+html {
+  min-height: 100%;
+  background-color: #03060f;
 }
 
 body {
+  min-height: 100%;
+  min-height: 100dvh;
   margin: 0;
   font-family:
     ui-sans-serif,
@@ -33,44 +36,18 @@ body {
     "Apple Color Emoji",
     "Segoe UI Emoji";
   overflow-x: hidden;
-  background:
-    radial-gradient(1300px 780px at 14% 14%, rgba(118, 96, 255, 0.24), transparent 64%),
-    radial-gradient(1050px 620px at 82% 24%, rgba(91, 218, 255, 0.18), transparent 63%),
-    radial-gradient(1100px 700px at 52% 90%, rgba(239, 64, 145, 0.11), transparent 68%),
-    radial-gradient(circle at 20% 25%, rgba(255, 255, 255, 0.035) 0 1px, transparent 1.5px),
-    radial-gradient(circle at 74% 58%, rgba(201, 229, 255, 0.03) 0 1px, transparent 1.5px),
-    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.028) 0 1px, transparent 1.5px),
-    repeating-radial-gradient(
-      circle at 30% 40%,
-      rgba(255, 255, 255, 0.015) 0 1px,
-      transparent 1px 38px
-    ),
-    repeating-radial-gradient(
-      circle at 70% 55%,
-      rgba(158, 220, 255, 0.012) 0 1px,
-      transparent 1px 44px
-    ),
-    linear-gradient(170deg, #030611 0%, #050a1d 36%, #040813 68%, #03060f 100%);
-  background-size:
-    auto,
-    auto,
-    auto,
-    360px 360px,
-    420px 420px,
-    520px 520px,
-    520px 520px,
-    640px 640px,
-    auto;
-  background-position:
-    center,
-    center,
-    center,
-    0 0,
-    140px 90px,
-    260px 210px,
-    0 0,
-    100px 120px,
-    center;
+  /* One continuous base + soft nebula layers (no repeating tiles = no horizontal seams). */
+  background-color: #03060f;
+  background-image:
+    radial-gradient(ellipse 140% 80% at 50% -10%, rgba(118, 96, 255, 0.18), transparent 55%),
+    radial-gradient(ellipse 120% 70% at 100% 40%, rgba(91, 218, 255, 0.14), transparent 58%),
+    radial-gradient(ellipse 100% 60% at 0% 60%, rgba(118, 96, 255, 0.1), transparent 55%),
+    radial-gradient(ellipse 130% 90% at 50% 110%, rgba(239, 64, 145, 0.08), transparent 55%),
+    radial-gradient(ellipse 80% 50% at 30% 100%, rgba(91, 218, 255, 0.06), transparent 50%),
+    linear-gradient(170deg, #030611 0%, #050a1d 38%, #040813 72%, #03060f 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: scroll;
   color: var(--text);
   line-height: 1.55;
 }
